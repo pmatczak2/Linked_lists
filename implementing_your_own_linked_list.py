@@ -19,8 +19,15 @@ class LinkedList:
         nodes.append("None")
         return " -> ".join(nodes)
 
-llist = LinkedList()
 
-first_node = Node("a")
-llist.head = first_node
-print()
+    def __iter__(self):  # How to Traverse a Linked List
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
+
+
+    def add_first(self, node):  # Inserting at the Beginning
+        node.next = self.head
+        self.head = node
+
